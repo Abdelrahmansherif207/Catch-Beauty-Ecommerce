@@ -27,8 +27,9 @@ export async function assembleFooterContent(locale: string): Promise<AssembledFo
     const platformMap: Record<string, string> = {
       facebook: settings.facebook,
       instagram: settings.instagram,
-      linkedin: settings.linkedin,
       youtube: settings.youtube,
+      tiktok: settings.tiktok,
+      snapchat: settings.snapchat,
     };
     for (const [platform, url] of Object.entries(platformMap)) {
       if (url) settingsSocial.push({ platform, url });
@@ -37,14 +38,23 @@ export async function assembleFooterContent(locale: string): Promise<AssembledFo
     // use defaults
   }
 
-  const mergedSocialLinks: SocialLink[] =
-    settingsSocial.length > 0
-      ? settingsSocial.map((s) => ({
-          platform: s.platform as SocialLink["platform"],
-          url: s.url,
-          label: s.platform.charAt(0).toUpperCase() + s.platform.slice(1),
-        }))
-      : data.socialLinks;
+  const baseLinks: SocialLink[] = data.socialLinks;
+
+  const mergedSocialLinks: SocialLink[] = settingsSocial.length > 0
+    ? (() => {
+        const map = new Map<string, SocialLink>(
+          baseLinks.map((l) => [l.platform, l])
+        );
+        for (const s of settingsSocial) {
+          map.set(s.platform, {
+            platform: s.platform as SocialLink["platform"],
+            url: s.url,
+            label: s.platform.charAt(0).toUpperCase() + s.platform.slice(1),
+          });
+        }
+        return Array.from(map.values());
+      })()
+    : baseLinks;
 
   return { data, logoSrc, siteName, copyright, mergedSocialLinks };
 }
