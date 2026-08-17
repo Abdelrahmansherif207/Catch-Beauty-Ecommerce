@@ -1,6 +1,5 @@
-import { apiFetch } from "@/shared/lib/api";
 import { getCachedSettings } from "@/features/settings/services/settingsService";
-import type { ApiResponse } from "@/shared/types";
+import { DEFAULT_SITE_NAME } from "@/features/settings/lib/metadata";
 import type { FooterData, SocialLink } from "../types";
 
 export interface AssembledFooterContent {
@@ -15,14 +14,14 @@ export async function assembleFooterContent(locale: string): Promise<AssembledFo
   const data = await footerService.getFooter(locale);
 
   let logoSrc = "/catch-footer-logo.jpeg";
-  let siteName = "";
+  let siteName = DEFAULT_SITE_NAME[locale] ?? DEFAULT_SITE_NAME.en;
   let copyright = "";
   const settingsSocial: { platform: string; url: string }[] = [];
 
   try {
     const settings = await getCachedSettings(locale);
     logoSrc = settings.footer_logo || settings.logo || logoSrc;
-    siteName = settings.site_name || "";
+    siteName = settings.site_name || siteName;
     copyright = settings.site_copy_right || "";
 
     const platformMap: Record<string, string> = {
@@ -41,7 +40,7 @@ export async function assembleFooterContent(locale: string): Promise<AssembledFo
   const mergedSocialLinks: SocialLink[] =
     settingsSocial.length > 0
       ? settingsSocial.map((s) => ({
-          platform: s.platform as "facebook" | "twitter" | "instagram" | "youtube",
+          platform: s.platform as SocialLink["platform"],
           url: s.url,
           label: s.platform.charAt(0).toUpperCase() + s.platform.slice(1),
         }))
@@ -92,7 +91,7 @@ function getMockFooterData(lang: string): FooterData {
         id: 3,
         title: isAr ? "معلومات عنا" : "About Us",
         links: [
-          { id: 6, label: isAr ? "عن كريم شوب" : "About Kareem Shop", slug: "/info/about" },
+          { id: 6, label: isAr ? "عن كيتش بيوتي" : "About Catch Beauty", slug: "/info/about" },
           { id: 7, label: isAr ? "شركتنا" : "Our Company", slug: "/info/company" },
           { id: 8, label: isAr ? "المسؤولية المجتمعية" : "Community & Society", slug: "/info/community" },
           { id: 9, label: isAr ? "النشرة البريدية" : "Newsletter", slug: "/info/newsletter" },
@@ -122,9 +121,10 @@ function getMockFooterData(lang: string): FooterData {
     ],
     socialLinks: [
       { platform: "facebook", url: "#", label: "Facebook" },
-      { platform: "twitter", url: "#", label: "Twitter" },
       { platform: "instagram", url: "#", label: "Instagram" },
       { platform: "youtube", url: "#", label: "YouTube" },
+      { platform: "tiktok", url: "#", label: "TikTok" },
+      { platform: "snapchat", url: "#", label: "Snapchat" },
     ],
     contactInfo: {
       stayInTouchText: isAr ? "ابق على تواصل معنا" : "Stay in touch with us",

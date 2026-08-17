@@ -53,7 +53,7 @@ export default function AvailableCoupons({ onSelectCoupon }: AvailableCouponsPro
   return (
     <div className="space-y-2">
       <h4 className="text-sm font-medium text-text-secondary">Available Coupons</h4>
-      <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-thin">
+      <div className="flex gap-3 overflow-x-auto pb-2 no-scrollbar">
         {coupons.map((coupon) => (
           <div
             key={coupon.id}

@@ -1,8 +1,7 @@
 "use client";
 
-import { Search, ArrowUpRight } from "lucide-react";
+import { Search, ArrowUpRight, Loader2 } from "lucide-react";
 import { useRouter } from "@/i18n/navigation";
-import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { cn } from "@/shared/utils/cn";
 import type { ProductSearchResult } from "@/features/products/types";
@@ -51,17 +50,10 @@ export function SearchAutocompleteDropdown({
       <div className="max-h-80 overflow-y-auto">
         {isLoading && (
           <div className={cn(
-            "flex flex-col items-center justify-center gap-2 py-8 px-4",
+            "flex flex-col items-center justify-center gap-3 py-8 px-4",
             results.length > 0 && "border-b border-gray-100 py-4"
           )}>
-            <Image
-              src="/images/search.gif"
-              alt=""
-              width={150}
-              height={150}
-              unoptimized
-              aria-hidden="true"
-            />
+            <Loader2 className="h-8 w-8 animate-spin text-primary" />
             <span className="text-xs font-medium text-text-secondary">
               {t("searching")}
             </span>

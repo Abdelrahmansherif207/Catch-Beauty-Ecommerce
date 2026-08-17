@@ -48,14 +48,14 @@ export function LoginForm({
       {method === "email" ? (
         <div>
           <div className="relative">
-            <Mail className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-text-secondary" />
+            <Mail className="absolute start-3 top-1/2 h-5 w-5 -translate-y-1/2 text-text-secondary" />
             <input
               type="email"
               name="email"
               placeholder={t("emailPlaceholder")}
               defaultValue={p.email || ""}
               className={
-                "w-full rounded-xl border bg-background pl-10 pr-4 py-2.5 text-sm text-text-primary outline-none transition focus:border-primary " +
+                "w-full rounded-xl border bg-background ps-10 pe-4 py-2.5 text-sm text-text-primary outline-none transition focus:border-primary " +
                 (fieldErrors.email ? "border-red-500" : "border-border")
               }
             />
