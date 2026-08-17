@@ -7,7 +7,7 @@ import { cn } from "@/shared/utils/cn";
 import { useAuthStore } from "@/features/auth/store/useAuthStore";
 import type { HydratedCartItem } from "../types";
 import { ProductCartItem } from "./ProductCartItem";
-import { calcSubtotal, calcTotalQuantity, isFreeShipping, canCheckout } from "../utils";
+import { calcSubtotal, isFreeShipping, canCheckout } from "../utils";
 
 interface CartSectionProps {
   items: HydratedCartItem[];
@@ -31,7 +31,6 @@ export function CartSection({
   const subtotal = calcSubtotal(
     items.map((i) => ({ price: i.current_price, quantity: i.quantity })),
   );
-  const totalQuantity = calcTotalQuantity(items);
 
   const checkoutEnabled = canCheckout(subtotal, minimumOrderAmount);
 
@@ -44,14 +43,14 @@ export function CartSection({
   const freeShippingEligible = isFreeShipping(subtotal, freeShippingThreshold);
   const freeShipPercent = Math.min(100, (subtotal / freeShippingThreshold) * 100);
   const freeShipRemaining = Math.max(0, freeShippingThreshold - subtotal);
-  const fillGradient = "from-blue-600 to-blue-400";
-  const activeColor = "border-blue-500 bg-blue-500";
-  const activeText = "text-blue-600";
+  const fillGradient = "from-primary to-accent";
+  const activeColor = "border-primary bg-primary";
+  const activeText = "text-primary";
   const milestonePos = (minimumOrderAmount / freeShippingThreshold) * 100;
   const milestones = [
-    { label: "Start", sub: null, pos: 0, Icon: Star },
-    { label: minimumOrderAmount + " K.D", sub: "Minimum", pos: milestonePos, Icon: ShoppingCart },
-    { label: freeShippingThreshold + " K.D", sub: "Free Shipping", pos: 100, Icon: Car },
+    { label: t("milestoneStart"), sub: null, pos: 0, Icon: Star },
+    { label: minimumOrderAmount + " K.D", sub: t("milestoneMinimum"), pos: milestonePos, Icon: ShoppingCart },
+    { label: freeShippingThreshold + " K.D", sub: t("milestoneFreeShipping"), pos: 100, Icon: Car },
   ];
 
   return (
@@ -75,12 +74,12 @@ export function CartSection({
         </div>
 
         <div className="relative py-6">
-          <div className="relative h-2 w-full rounded-full bg-gray-100">
+          <div className="relative h-2 w-full rounded-full bg-border-subtle">
             <div
               className={cn("h-full rounded-full transition-all duration-700 ease-out bg-gradient-to-r", fillGradient)}
               style={{ width: Math.min(100, freeShipPercent) + "%" }}
             >
-              <div className="absolute inset-0 rounded-full bg-[repeating-linear-gradient(135deg,transparent,transparent_6px,rgba(255,255,255,0.2)_6px,rgba(255,255,255,0.2)_12px)]" />
+              <div className="absolute inset-0 rounded-full bg-[repeating-linear-gradient(135deg,transparent,transparent_6px,rgba(255,255,255,0.25)_6px,rgba(255,255,255,0.25)_12px)]" />
             </div>
           </div>
 
@@ -97,17 +96,17 @@ export function CartSection({
                     "flex h-8 w-8 items-center justify-center rounded-full border-[3px] transition-all duration-300",
                     reached
                       ? activeColor + " shadow-md"
-                      : "border-gray-300 bg-white",
+                      : "border-border bg-white",
                   )}
                 >
-                  <m.Icon className={cn("h-4 w-4", reached ? "text-white" : "text-gray-400")} />
+                  <m.Icon className={cn("h-4 w-4", reached ? "text-white" : "text-text-secondary")} />
                 </div>
                 <div className="absolute left-1/2 -translate-x-1/2 mt-1 text-center" style={{ top: "100%" }}>
-                  <div className={cn("text-xs font-bold whitespace-nowrap", reached ? activeText : "text-gray-400")}>
+                  <div className={cn("text-xs font-bold whitespace-nowrap", reached ? activeText : "text-text-secondary")}>
                     {m.label}
                   </div>
                   {m.sub && (
-                    <div className={cn("text-[10px] leading-tight whitespace-nowrap mt-px", reached ? "text-gray-500" : "text-gray-300")}>
+                    <div className={cn("text-[10px] leading-tight whitespace-nowrap mt-px", reached ? "text-text-secondary" : "text-text-secondary/70")}>
                       {m.sub}
                     </div>
                   )}
@@ -118,7 +117,7 @@ export function CartSection({
         </div>
 
         {freeShippingEligible && (
-          <div className="flex items-center justify-center gap-1.5 text-xs font-medium text-green-600">
+          <div className="flex items-center justify-center gap-1.5 text-xs font-medium text-success">
             <Gift className="h-3.5 w-3.5" />
             {t("freeShippingAchieved")}
           </div>

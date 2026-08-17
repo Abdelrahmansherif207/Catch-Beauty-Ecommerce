@@ -11,8 +11,9 @@ export interface SiteSettings {
   facebook: string;
   instagram: string;
   linkedin: string;
-  promotion_video_url: string;
   youtube: string;
+  tiktok: string;
+  snapchat: string;
   phone: string;
   minimumOrderAmount: number;
   options: unknown | null;

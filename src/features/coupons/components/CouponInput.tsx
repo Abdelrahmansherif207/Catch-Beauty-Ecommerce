@@ -5,6 +5,7 @@ import { useLocale } from "next-intl";
 import { Loader2, CheckCircle, AlertCircle, XCircle } from "lucide-react";
 import { cn } from "@/shared/utils/cn";
 import { couponService } from "../services/couponService";
+import { useAuthModalStore } from "@/features/auth/store/useAuthModalStore";
 
 interface CouponInputProps {
   onApplied?: () => void;
@@ -15,11 +16,17 @@ type CouponStatus = "idle" | "loading" | "success" | "already-applied" | "error"
 
 export default function CouponInput({ onApplied, isAuthenticated }: CouponInputProps) {
   const locale = useLocale();
+  const openAuthModal = useAuthModalStore((s) => s.open);
   const [code, setCode] = useState("");
   const [status, setStatus] = useState<CouponStatus>("idle");
   const [errorMsg, setErrorMsg] = useState("");
 
   const handleApply = useCallback(async () => {
+    if (!isAuthenticated) {
+      openAuthModal();
+      return;
+    }
+
     const trimmed = code.trim();
     if (!trimmed) return;
 
@@ -66,7 +73,7 @@ export default function CouponInput({ onApplied, isAuthenticated }: CouponInputP
         setErrorMsg("Network error, please try again");
       }
     }
-  }, [code, locale, isAuthenticated]);
+  }, [code, locale, isAuthenticated, openAuthModal]);
 
   const isInputDisabled = status === "loading";
 

@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useLocale } from "next-intl";
 import { Autoplay, Keyboard } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import type { Swiper as SwiperType } from "swiper/types";
@@ -12,6 +11,7 @@ import type { Slider } from "../types";
 
 interface SliderHeroClientProps {
   sliders: Slider[];
+  locale: string;
 }
 
 const AUTO_PLAY_MS = 5000;
@@ -30,8 +30,7 @@ function SliderSlideImage({ slider, isFirst }: { slider: Slider; isFirst: boolea
   );
 }
 
-export default function SliderHeroClient({ sliders }: SliderHeroClientProps) {
-  const locale = useLocale();
+export default function SliderHeroClient({ sliders, locale }: SliderHeroClientProps) {
   const isRtl = locale === "ar";
   const total = sliders.length;
   const [currentIndex, setCurrentIndex] = useState(0);

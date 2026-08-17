@@ -1,6 +1,5 @@
-import Image from "next/image";
 import type { FooterData, SocialLink } from "../../types";
-import { SOCIAL_ICON_URLS } from "../../constants";
+import { SocialIcon } from "./SocialIcons";
 import Logo from "@/components/ui/Logo";
 import FooterAccordion from "./FooterAccordion";
 import FooterAccordionItem from "./FooterAccordionItem";
@@ -44,21 +43,15 @@ export default function FooterMobileContent({
           <p className="mt-2 text-xs leading-normal font-normal text-white">
             {data.contactInfo.stayInTouchText}
           </p>
-          <div className="mt-2 flex">
+          <div className="mt-2 flex gap-2">
             {mergedSocialLinks.map((s) => (
               <a
                 key={s.platform}
                 href={s.url || "#"}
                 aria-label={s.label}
-                className="pr-2 transition-opacity hover:opacity-80"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-primary/20 bg-primary/5 text-primary transition hover:border-primary/50 hover:bg-primary/10"
               >
-                <Image
-                  alt={s.label}
-                  width={24}
-                  height={24}
-                  src={SOCIAL_ICON_URLS[s.platform] || SOCIAL_ICON_URLS.facebook}
-                  unoptimized
-                />
+                <SocialIcon platform={s.platform} className="h-4 w-4" />
               </a>
             ))}
           </div>

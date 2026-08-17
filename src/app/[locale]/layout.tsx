@@ -8,6 +8,7 @@ import Header from "@/features/navigation/components/header/Header";
 import MobileHeader from "@/features/navigation/components/mobile/MobileHeader";
 import MobileBottomNav from "@/features/navigation/components/mobile/MobileBottomNav";
 import Footer from "@/features/navigation/components/footer/Footer";
+import ScrollToTopButton from "@/components/ui/ScrollToTopButton";
 import { AuthModal } from "@/features/auth/components/AuthModal";
 import { AuthSyncHandler } from "@/features/auth/components/AuthSyncHandler";
 import { CartSyncProvider } from "@/features/cart/components/CartSyncProvider";
@@ -118,6 +119,7 @@ export default async function RootLayout({
           </CartSyncProvider>
           <WishlistSyncProvider />
           <Footer params={params} />
+          <ScrollToTopButton />
           <AuthModal />
         </NextIntlClientProvider>
       </body>
