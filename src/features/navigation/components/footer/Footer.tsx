@@ -35,15 +35,15 @@ export default async function Footer({ params }: FooterProps) {
             <div>
               <Logo src={logoSrc || ""} alt={siteName || "Logo"} textFallback={logoSrc ? undefined : (siteName || undefined)} width={60} height={60} />
               <p className="mt-4 text-xs leading-normal font-normal text-white">{data.contactInfo.stayInTouchText}</p>
-              <div className="mt-2 flex gap-2">
+              <div className="mt-2 flex">
                 {mergedSocialLinks.map((s) => (
                   <a
                     key={s.platform}
                     href={s.url || "#"}
                     aria-label={s.label}
-                    className="flex h-9 w-9 items-center justify-center rounded-full border border-primary/20 bg-primary/5 text-primary transition hover:border-primary/50 hover:bg-primary/10"
+                    className="pr-2 transition-opacity hover:opacity-80"
                   >
-                    <SocialIcon platform={s.platform} className="h-4 w-4" />
+                    <SocialIcon platform={s.platform} className="h-6 w-6" />
                   </a>
                 ))}
               </div>

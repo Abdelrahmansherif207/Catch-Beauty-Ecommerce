@@ -627,5 +627,30 @@
     "noReviewDescription": "كن أول من يشارك رأيه حول هذا المنتج.",
     "noSuggestions": "لا توجد نتائج",
     "noMapResults": "لا توجد نتائج. جرّب بحثًا مختلفًا."
+  },
+  "notifications": {
+    "title": "الإشعارات",
+    "metaTitle": "الإشعارات",
+    "metaDescription": "إشعاراتك وتحديثات النشاط",
+    "empty": "لا توجد إشعارات بعد",
+    "emptyDescription": "عندما تصلك إشعارات جديدة، ستظهر هنا.",
+    "markAllRead": "تحديد الكل كمقروء",
+    "markRead": "تحديد كمقروء",
+    "delete": "حذف",
+    "viewAll": "عرض الكل",
+    "loginRequired": "سجّل الدخول لعرض إشعاراتك.",
+    "login": "تسجيل الدخول",
+    "allCaughtUp": "جميع الإشعارات مقروءة",
+    "unreadCount": "{count} إشعار غير مقروء",
+    "loadMore": "تحميل المزيد",
+    "loading": "جارٍ التحميل...",
+    "showing": "عرض {shown} من {total}",
+    "error": "فشل تحميل الإشعارات.",
+    "justNow": "الآن",
+    "minAgo": "منذ {count} دقيقة",
+    "hrAgo": "منذ {count} ساعة",
+    "dayAgo": "منذ {count} يوم",
+    "weekAgo": "منذ {count} أسبوع",
+    "retry": "إعادة المحاولة"
   }
 }

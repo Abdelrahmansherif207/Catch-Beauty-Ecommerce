@@ -119,7 +119,7 @@
     "hidePassword": "Hide password"
   },
   "cartPage": {
-   "metaTitle": "Cart",
+    "metaTitle": "Cart",
     "metaDescription": "Review your cart and complete your checkout.",
     "title": "Cart",
     "breadcrumb": "Cart",
@@ -627,5 +627,30 @@
     "noReviewDescription": "Be the first to share your thoughts on this product.",
     "noSuggestions": "No results found",
     "noMapResults": "No results found. Try a different search."
+  },
+  "notifications": {
+    "title": "Notifications",
+    "metaTitle": "Notifications",
+    "metaDescription": "Your notifications and activity updates",
+    "empty": "No notifications yet",
+    "emptyDescription": "When you have new notifications, they will appear here.",
+    "markAllRead": "Mark all as read",
+    "markRead": "Mark as read",
+    "delete": "Delete",
+    "viewAll": "View all",
+    "loginRequired": "Sign in to view your notifications.",
+    "login": "Sign in",
+    "allCaughtUp": "You are all caught up",
+    "unreadCount": "{count} unread notification(s)",
+    "loadMore": "Load more",
+    "loading": "Loading...",
+    "showing": "Showing {shown} of {total}",
+    "error": "Failed to load notifications.",
+    "justNow": "Just now",
+    "minAgo": "{count} min ago",
+    "hrAgo": "{count} hour(s) ago",
+    "dayAgo": "{count} day(s) ago",
+    "weekAgo": "{count} week(s) ago",
+    "retry": "Retry"
   }
 }

@@ -13,6 +13,11 @@ import { AuthModal } from "@/features/auth/components/AuthModal";
 import { AuthSyncHandler } from "@/features/auth/components/AuthSyncHandler";
 import { CartSyncProvider } from "@/features/cart/components/CartSyncProvider";
 import { WishlistSyncProvider } from "@/features/wishlist/components/WishlistSyncProvider";
+import {
+  NotificationSyncHandler,
+  NotificationRealtimeProvider,
+  NotificationToast,
+} from "@/features/notifications";
 import { IBM_Plex_Sans_Arabic } from "next/font/google";
 import { cn } from "@/shared/utils/cn";
 import { getSiteMeta } from "@/features/settings/lib/metadata";
@@ -112,6 +117,8 @@ export default async function RootLayout({
           </div>
           <MobileBottomNav />
           <AuthSyncHandler />
+          <NotificationSyncHandler />
+          <NotificationRealtimeProvider />
           <CartSyncProvider>
             <div className="container mx-auto flex flex-1 flex-col px-4 pb-[56px] lg:pb-0">
               {children}
@@ -121,6 +128,7 @@ export default async function RootLayout({
           <Footer params={params} />
           <ScrollToTopButton />
           <AuthModal />
+          <NotificationToast />
         </NextIntlClientProvider>
       </body>
     </html>
