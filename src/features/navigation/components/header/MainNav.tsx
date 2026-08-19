@@ -7,6 +7,7 @@ import Logo from "@/components/ui/Logo";
 import { SearchAutocomplete } from "./SearchAutocomplete";
 import { LocaleSwitcher } from "./LocaleSwitcher";
 import { WishlistIcon } from "./WishlistIcon";
+import { NotificationBell } from "@/features/notifications";
 import { useAuthModalStore } from "@/features/auth/store/useAuthModalStore";
 import { useAuthStore } from "@/features/auth/store/useAuthStore";
 import { UserMenu } from "@/features/auth/components/UserMenu";
@@ -81,6 +82,7 @@ export default function MainNav({ settingsLogo }: { settingsLogo?: string | null
         </div>
 
         <WishlistIcon />
+        <NotificationBell />
 
        <Link
   href="/cart"
