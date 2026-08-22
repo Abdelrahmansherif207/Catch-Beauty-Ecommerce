@@ -29,6 +29,10 @@ export function PickupSelector({ onSelect }: PickupSelectorProps) {
         if (cancelled) return;
         setLocations(data);
         setLoading(false);
+        if (selectedId === null) {
+          const defaultLoc = data.find((l) => l.is_default);
+          if (defaultLoc) setSelectedId(defaultLoc.id);
+        }
       })
       .catch(() => {
         if (cancelled) return;

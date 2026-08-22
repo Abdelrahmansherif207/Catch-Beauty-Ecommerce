@@ -26,6 +26,10 @@ export function PickupLocationSelector() {
         if (cancelled) return;
         setLocations(data);
         setLoading(false);
+        if (selectedId === null) {
+          const defaultLoc = data.find((l) => l.is_default);
+          if (defaultLoc) setSelectedId(defaultLoc.id);
+        }
       })
       .catch(() => {
         if (cancelled) return;
@@ -174,8 +178,8 @@ export function PickupLocationSelector() {
                     </thead>
                     <tbody>
                       {loc.working_hours.map((wh) => (
-                        <tr key={wh.day} className="border-b border-border/50 last:border-0">
-                          <td className="py-1 pr-2 text-text-primary">{wh.day}</td>
+                        <tr key={wh.day.en} className="border-b border-border/50 last:border-0">
+                          <td className="py-1 pr-2 text-text-primary">{("ar" in wh.day && locale === "ar") ? wh.day.ar : wh.day.en}</td>
                           {isClosed(wh.open) ? (
                             <td className="py-1 pr-2 text-text-secondary" colSpan={2}>{t("closed")}</td>
                           ) : (
