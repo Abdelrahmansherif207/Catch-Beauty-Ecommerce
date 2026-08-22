@@ -304,6 +304,7 @@
     "tabs": {
       "info": "المعلومات الشخصية",
       "orders": "الطلبات",
+      "invoices": "الفواتير",
       "addresses": "العناوين",
       "security": "الأمان"
     },
@@ -364,6 +365,27 @@
       "empty": "لا توجد طلبات بعد.",
       "emptyDescription": "عندما تقوم بطلب، سيظهر هنا.",
       "loadError": "فشل تحميل الطلبات.",
+      "detailLoadError": "فشل تحميل تفاصيل الطلب.",
+      "viewDetails": "عرض التفاصيل",
+      "viewInvoice": "عرض الفاتورة",
+      "orderNumber": "طلب #{number}",
+      "paymentMethod": "طريقة الدفع",
+      "fulfillmentType": "طريقة الاستلام",
+      "pickup": "استلام شخصي",
+      "delivery": "توصيل",
+      "pickupLocation": "موقع الاستلام",
+      "all": "الكل",
+      "pending": "قيد الانتظار",
+      "processing": "قيد المعالجة",
+      "completed": "مكتمل",
+      "delivered": "تم التوصيل",
+      "cancelled": "ملغي",
+      "items": "المنتجات",
+      "subtotal": "المجموع الفرعي",
+      "shipping": "الشحن",
+      "fastShipping": "شحن سريع",
+      "promotionDiscount": "خصم العروض",
+      "couponDiscount": "خصم الكوبون",
       "total": "الإجمالي",
       "discount": "الخصم",
       "status": {
@@ -371,8 +393,38 @@
         "pending": "قيد الانتظار",
         "cancelled": "ملغي",
         "processing": "قيد المعالجة",
-        "shipped": "تم الشحن"
+        "delivered": "تم التوصيل"
       }
+    },
+    "invoices": {
+      "tab": "الفواتير",
+      "empty": "لا توجد فواتير بعد.",
+      "emptyDescription": "ستظهر الفواتير هنا بعد أول طلب لك.",
+      "loadError": "فشل تحميل الفواتير.",
+      "detailLoadError": "فشل تحميل تفاصيل الفاتورة.",
+      "invoiceNumber": "فاتورة #{number}",
+      "orderNumber": "طلب #{number}",
+      "date": "التاريخ",
+      "total": "الإجمالي",
+      "subtotal": "المجموع الفرعي",
+      "shipping": "الشحن",
+      "discount": "الخصم",
+      "status": {
+        "ready": "جاهزة",
+        "generated": "تم الإنشاء"
+      },
+      "viewDetails": "عرض التفاصيل",
+      "downloadPdf": "تحميل PDF",
+      "verify": "التحقق من الفاتورة",
+      "items": "المنتجات",
+      "pricing": "تفاصيل التسعير",
+      "paymentMethod": "طريقة الدفع",
+      "fulfillment": "الاستلام",
+      "pickupLocation": "موقع الاستلام",
+      "pickupInfo": "معلومات الاستلام",
+      "customerName": "العميل",
+      "deliveryAddress": "عنوان التوصيل",
+      "learnMore": "اعرف المزيد"
     }
   },
   "contact": {

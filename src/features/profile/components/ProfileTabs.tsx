@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { useRouter } from "@/i18n/navigation";
-import { User, Package, MapPin, Lock, Loader2 } from "lucide-react";
+import { User, Package, MapPin, Lock, FileText, Loader2 } from "lucide-react";
 import { useAuthStore } from "@/features/auth/store/useAuthStore";
 import { profileService } from "../services/profileService";
 import type { Profile, ProfileTab } from "../types";
@@ -11,12 +11,14 @@ import { ProfileInfoSection } from "./ProfileInfoSection";
 import { ChangePasswordForm } from "./ChangePasswordForm";
 import { AddressSection } from "./AddressSection";
 import { OrdersSection } from "./OrdersSection";
+import { InvoicesSection } from "./InvoicesSection";
 import { ProfileSkeleton } from "./skeletons/ProfileSkeleton";
 import { cn } from "@/shared/utils/cn";
 
 const tabs: { key: ProfileTab; icon: typeof User; labelKey: string }[] = [
   { key: "info", icon: User, labelKey: "tabs.info" },
   { key: "orders", icon: Package, labelKey: "tabs.orders" },
+  { key: "invoices", icon: FileText, labelKey: "tabs.invoices" },
   { key: "addresses", icon: MapPin, labelKey: "tabs.addresses" },
   { key: "security", icon: Lock, labelKey: "tabs.security" },
 ];
@@ -87,6 +89,7 @@ export function ProfileTabs() {
 
       {activeTab === "info" && profile && <ProfileInfoSection profile={profile} />}
       {activeTab === "orders" && <OrdersSection />}
+      {activeTab === "invoices" && <InvoicesSection />}
       {activeTab === "addresses" && profile && <AddressSection customerId={profile.id} />}
       {activeTab === "security" && <ChangePasswordForm />}
     </div>

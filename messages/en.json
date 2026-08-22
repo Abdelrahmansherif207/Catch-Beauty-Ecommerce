@@ -304,6 +304,7 @@
     "tabs": {
       "info": "Profile Info",
       "orders": "Orders",
+      "invoices": "Invoices",
       "addresses": "Addresses",
       "security": "Security"
     },
@@ -364,6 +365,27 @@
       "empty": "No orders yet.",
       "emptyDescription": "When you place an order, it will show up here.",
       "loadError": "Failed to load orders.",
+      "detailLoadError": "Failed to load order details.",
+      "viewDetails": "View Details",
+      "viewInvoice": "View Invoice",
+      "orderNumber": "Order #{number}",
+      "paymentMethod": "Payment Method",
+      "fulfillmentType": "Fulfillment",
+      "pickup": "Pickup",
+      "delivery": "Delivery",
+      "pickupLocation": "Pickup Location",
+      "all": "All",
+      "pending": "Pending",
+      "processing": "Processing",
+      "completed": "Completed",
+      "delivered": "Delivered",
+      "cancelled": "Cancelled",
+      "items": "Items",
+      "subtotal": "Subtotal",
+      "shipping": "Shipping",
+      "fastShipping": "Fast Shipping",
+      "promotionDiscount": "Promotion Discount",
+      "couponDiscount": "Coupon Discount",
       "total": "Total",
       "discount": "Discount",
       "status": {
@@ -371,8 +393,38 @@
         "pending": "Pending",
         "cancelled": "Cancelled",
         "processing": "Processing",
-        "shipped": "Shipped"
+        "delivered": "Delivered"
       }
+    },
+    "invoices": {
+      "tab": "Invoices",
+      "empty": "No invoices yet.",
+      "emptyDescription": "Invoices will appear here after your first order.",
+      "loadError": "Failed to load invoices.",
+      "detailLoadError": "Failed to load invoice details.",
+      "invoiceNumber": "Invoice #{number}",
+      "orderNumber": "Order #{number}",
+      "date": "Date",
+      "total": "Total",
+      "subtotal": "Subtotal",
+      "shipping": "Shipping",
+      "discount": "Discount",
+      "status": {
+        "ready": "Ready",
+        "generated": "Generated"
+      },
+      "viewDetails": "View Details",
+      "downloadPdf": "Download PDF",
+      "verify": "Verify Invoice",
+      "items": "Items",
+      "pricing": "Pricing Breakdown",
+      "paymentMethod": "Payment Method",
+      "fulfillment": "Fulfillment",
+      "pickupLocation": "Pickup Location",
+      "pickupInfo": "Pickup Information",
+      "customerName": "Customer",
+      "deliveryAddress": "Delivery Address",
+      "learnMore": "Learn More"
     }
   },
   "contact": {
