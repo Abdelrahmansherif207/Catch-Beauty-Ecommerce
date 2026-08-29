@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import Image from "next/image";
 import { cn } from "@/shared/utils/cn";
 
 export type ErrorStateVariant = "serverError" | "notFound" | "generic";
@@ -35,10 +36,12 @@ export default function ErrorState({
         className,
       )}
     >
-      <img
+      <Image
         src={ILLUSTRATIONS[variant]}
         alt=""
         aria-hidden
+        width={300}
+        height={300}
         className={cn(
           "w-full max-w-[300px] select-none",
           compact && "max-w-[120px]",

@@ -46,7 +46,6 @@ export default function ProductCard({
   productId,
   slug = "",
   sku = "",
-  inStock = 10,
   stockQuantity = 10,
   priority: priorityProp,
   hasVariants = false,

@@ -1,5 +1,5 @@
 import { getTranslations } from "next-intl/server";
-import { CheckCircle, QrCode } from "lucide-react";
+import { CheckCircle } from "lucide-react";
 import Link from "next/link";
 import Breadcrumb from "@/components/ui/Breadcrumb";
 import { QRDisplay } from "./QRDisplay";

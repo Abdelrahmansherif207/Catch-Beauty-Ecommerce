@@ -2,7 +2,7 @@
 import { useEffect, useRef, useReducer, useCallback, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
-import { ShoppingBag, Loader2, AlertTriangle, RefreshCw } from "lucide-react";
+import { Loader2, AlertTriangle, RefreshCw } from "lucide-react";
 import { useAuthStore } from "@/features/auth/store/useAuthStore";
 import { useGuestCartStore } from "../store/useGuestCartStore";
 import { useServerCartStore } from "../store/useServerCartStore";
@@ -12,7 +12,6 @@ import { CartSummary } from "./CartSummary";
 import AvailableCoupons from "@/features/coupons/components/AvailableCoupons";
 import { calcSubtotal, calcTotalQuantity } from "../utils";
 import type { AppliedCoupon } from "@/features/coupons/types";
-import type { Coupon } from "@/features/coupons/types";
 import { couponService } from "@/features/coupons/services/couponService";
 import { ApiError } from "@/shared/lib/api";
 import type { HydratedCartItem, CartApiItem, CartApiCart } from "../types";
@@ -152,16 +151,12 @@ export function CartPageContent({ minimumOrderAmount }: CartPageContentProps) {
 
   const [appliedCoupon, setAppliedCoupon] = useState<AppliedCoupon | null>(null);
   const couponDiscount = appliedCoupon?.discount_amount ?? 0;
-  const [serverSubtotal, setServerSubtotal] = useState<number | null>(null);
-  const [serverTotalAfterCoupon, setServerTotalAfterCoupon] = useState<number | null>(null);
+
 
   // -------------------------------------------------------------------------
   // processCart — map server cart data into all local state
   // -------------------------------------------------------------------------
   const processCart = useCallback((cart: CartApiCart) => {
-    setServerSubtotal(cart.subtotal);
-    setServerTotalAfterCoupon(cart.total_after_coupon);
-
     const mapItem = (item: CartApiItem): HydratedCartItem => ({
       product_id: item.product_id,
       product_variant_id: item.product_variant_id ?? null,
@@ -269,7 +264,7 @@ export function CartPageContent({ minimumOrderAmount }: CartPageContentProps) {
     }
 
     // Authenticated and sync complete (or no guest items): load from server.
-    loadServerCart();
+    loadServerCart(); // eslint-disable-line react-hooks/set-state-in-effect
   }, [isAuthenticated, isSyncing, syncError, loadServerCart]);
 
   // Abort any in-flight request on unmount (navigation away).

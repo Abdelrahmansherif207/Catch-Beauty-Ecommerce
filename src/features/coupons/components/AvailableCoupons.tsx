@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { useLocale } from "next-intl";
 import { Copy, Check } from "lucide-react";
 import { couponService } from "../services/couponService";
@@ -66,9 +67,11 @@ export default function AvailableCoupons({ onSelectCoupon }: AvailableCouponsPro
               onClick={() => onSelectCoupon(coupon)}
               title={`Use code: ${coupon.code}`}
             >
-              <img
+              <Image
                 src={coupon.image.desktop || coupon.image.mobile}
                 alt={coupon.name}
+                width={144}
+                height={192}
                 className="h-full w-full object-cover"
                 loading="lazy"
               />

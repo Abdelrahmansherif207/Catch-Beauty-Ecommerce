@@ -78,7 +78,7 @@ export default function MobileHamburgerMenu() {
 
   useEffect(() => {
     if (!open || categories.length > 0) return;
-    setLoading(true);
+    setLoading(true); // eslint-disable-line react-hooks/set-state-in-effect
     categoryMenuWithCache.getMenu(locale)
       .then(setCategories)
       .catch(() => setCategories([]))

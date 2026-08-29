@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import Image from "next/image";
 
 export default function GlobalError({
   error,
@@ -26,10 +27,12 @@ export default function GlobalError({
           }}
         >
           <div style={{ textAlign: "center", maxWidth: "420px" }}>
-            <img
+            <Image
               src="/images/empty-state/server-error.svg"
               alt=""
               aria-hidden
+              width={300}
+              height={300}
               style={{ width: "100%", maxWidth: "300px", margin: "0 auto" }}
             />
             <h1

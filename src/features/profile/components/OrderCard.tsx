@@ -1,6 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 import { Package, ChevronDown, ChevronUp } from "lucide-react";
 import { useState } from "react";
 import type { Order } from "../types";
@@ -55,9 +56,11 @@ export function OrderCard({ order }: OrderCardProps) {
             <div key={item.id} className="flex items-center gap-3">
               <div className="h-12 w-12 rounded-lg bg-surface shrink-0 overflow-hidden">
                 {item.product.image.thumbnail && (
-                  <img
+                  <Image
                     src={item.product.image.thumbnail}
                     alt={item.product.name}
+                    width={48}
+                    height={48}
                     className="h-full w-full object-cover"
                   />
                 )}

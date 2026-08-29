@@ -73,7 +73,7 @@ export default function CouponInput({ onApplied, isAuthenticated }: CouponInputP
         setErrorMsg("Network error, please try again");
       }
     }
-  }, [code, locale, isAuthenticated, openAuthModal]);
+  }, [code, locale, isAuthenticated, openAuthModal, onApplied]);
 
   const isInputDisabled = status === "loading";
 

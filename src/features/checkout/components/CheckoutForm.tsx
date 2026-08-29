@@ -106,7 +106,7 @@ export function CheckoutForm() {
 
   useEffect(() => {
     const unsub = useAuthStore.persist.onFinishHydration(() => setHydrated(true));
-    if (useAuthStore.persist.hasHydrated()) setHydrated(true);
+    if (useAuthStore.persist.hasHydrated()) setHydrated(true); // eslint-disable-line react-hooks/set-state-in-effect
     return unsub;
   }, []);
 
@@ -161,7 +161,7 @@ export function CheckoutForm() {
 
   useEffect(() => {
     let cancelled = false;
-    setGovernoratesLoading(true);
+    setGovernoratesLoading(true); // eslint-disable-line react-hooks/set-state-in-effect
     setGovernoratesError(false);
     governorateService.getAll(locale)
       .then((data) => {
@@ -182,7 +182,7 @@ export function CheckoutForm() {
   useEffect(() => {
     if (!hydrated || !isAuthenticated) return;
     let cancelled = false;
-    setAddressesLoading(true);
+    setAddressesLoading(true); // eslint-disable-line react-hooks/set-state-in-effect
     setAddressesError(false);
     addressService.getAll(locale)
       .then((data) => {

@@ -16,6 +16,7 @@ import BannerHeroSection from "@/features/banners/components/BannerHeroSection";
 import BannerSection from "@/features/banners/components/BannerSection";
 import BannerStripSection from "@/features/banners/components/BannerStripSection";
 import BannerHeroSkeleton from "@/features/banners/components/BannerHeroSkeleton";
+import BannerSectionSkeleton from "@/features/banners/components/BannerSectionSkeleton";
 import BannerStripSkeleton from "@/features/banners/components/BannerStripSkeleton";
 import SliderHeroSection from "@/features/sliders/components/SliderHeroSection";
 import SliderHeroSkeleton from "@/features/sliders/components/SliderHeroSkeleton";
@@ -97,7 +98,7 @@ function getSectionSkeleton(type: string, setting?: SectionFrontSetting): React.
     case "products":
       return <ProductSliderSkeleton />;
     case "banners":
-      return <BannerHeroSkeleton />;
+      return <BannerSectionSkeleton />;
     case "tags":
       return <TagsBannerSkeleton />;
     default:
