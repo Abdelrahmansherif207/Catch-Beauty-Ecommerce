@@ -1,6 +1,6 @@
 "use client";
 
-import { useTranslations, useLocale } from "next-intl";
+import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import type { SubCategory } from "../types";
@@ -19,7 +19,6 @@ export default function MobileCategorySidebar({
   parentSlug,
 }: MobileCategorySidebarProps) {
   const t = useTranslations("header.categoryNav");
-  const locale = useLocale();
 
   if (!subCategories || subCategories.length === 0) return null;
 

@@ -5,7 +5,6 @@ import { useAuthStore } from "@/features/auth/store/useAuthStore";
 import { useGuestCartStore } from "../store/useGuestCartStore";
 import { useServerCartStore } from "../store/useServerCartStore";
 import { cartService } from "../services/cartService";
-import type { GuestCartItem } from "../types";
 
 /**
  * Unified cart-mutation hook.

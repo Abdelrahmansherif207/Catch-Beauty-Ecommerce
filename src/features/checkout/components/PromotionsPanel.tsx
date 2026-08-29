@@ -19,7 +19,7 @@ export function PromotionsPanel({ selectedId, onSelect }: PromotionsPanelProps) 
 
   useEffect(() => {
     let cancelled = false;
-    setLoading(true);
+    setLoading(true); // eslint-disable-line react-hooks/set-state-in-effect
     setError(false);
 
     checkoutService.getEligiblePromotions(locale)

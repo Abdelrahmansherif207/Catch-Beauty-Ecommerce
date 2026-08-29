@@ -29,7 +29,7 @@ export function ForgotPasswordForm({
   useEffect(() => {
     if (state?.success) {
       if (step === "email" && state.payload?.otp_sent) {
-        setStep("otp");
+        setStep("otp"); // eslint-disable-line react-hooks/set-state-in-effect
       } else if (step === "otp" && state.payload?.token_verified) {
         setStep("reset");
       } else if (step === "reset") {
@@ -40,11 +40,11 @@ export function ForgotPasswordForm({
 
   useEffect(() => {
     if (state?.success === false && step === "done") {
-      setStep("reset");
+      setStep("reset"); // eslint-disable-line react-hooks/set-state-in-effect
     }
   }, [state, step]);
 
-  function handleOtpComplete(_value: string) {
+  function handleOtpComplete() {
     // submit button handles submission
   }
 

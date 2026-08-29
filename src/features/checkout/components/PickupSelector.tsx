@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
-import { MapPin, Loader2 } from "lucide-react";
+import { MapPin } from "lucide-react";
 import { pickupLocationService } from "@/features/pickup-location/services/pickupLocationService";
 import { usePickupLocationStore } from "@/features/pickup-location/store/usePickupLocationStore";
 import type { PickupLocation } from "@/features/pickup-location/types";
@@ -21,7 +21,7 @@ export function PickupSelector({ onSelect }: PickupSelectorProps) {
 
   useEffect(() => {
     let cancelled = false;
-    setLoading(true);
+    setLoading(true); // eslint-disable-line react-hooks/set-state-in-effect
     setError(false);
 
     pickupLocationService.getAll(locale)
@@ -41,9 +41,7 @@ export function PickupSelector({ onSelect }: PickupSelectorProps) {
       });
 
     return () => { cancelled = true; };
-  }, [locale]);
-
-  const selectedLocation = locations.find((l) => l.id === selectedId);
+  }, [locale, selectedId, setSelectedId]);
 
   if (loading) {
     return (

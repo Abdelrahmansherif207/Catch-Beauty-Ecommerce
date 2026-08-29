@@ -105,7 +105,7 @@ export default async function RootLayout({
   }
   
   return (
-      <html lang={locale} dir={dir} className="overflow-x-clip">
+      <html lang={locale} dir={dir}>
       <body className={cn("flex min-h-dvh flex-col overflow-x-clip", ibmPlexSansArabic.variable)}>
         <link rel="preconnect" href={process.env.NEXT_PUBLIC_API_URL} />
         <NextIntlClientProvider locale={locale} messages={messages}>
@@ -120,12 +120,14 @@ export default async function RootLayout({
           <NotificationSyncHandler />
           <NotificationRealtimeProvider />
           <CartSyncProvider>
-            <div className="container mx-auto flex flex-1 flex-col px-4 pb-[56px] lg:pb-0">
-              {children}
+            <div className="flex flex-1 flex-col">
+              <div className="container mx-auto flex flex-1 flex-col px-4 pb-[56px] lg:pb-0">
+                {children}
+              </div>
+              <Footer params={params} />
             </div>
           </CartSyncProvider>
           <WishlistSyncProvider />
-          <Footer params={params} />
           <ScrollToTopButton />
           <AuthModal />
           <NotificationToast />

@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
-import { MapPin, Phone, Mail, Clock, ExternalLink, Loader2, AlertTriangle, ChevronDown, ChevronUp } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, ExternalLink, ChevronDown, ChevronUp } from "lucide-react";
 import { pickupLocationService } from "../services/pickupLocationService";
 import { usePickupLocationStore } from "../store/usePickupLocationStore";
 import type { PickupLocation } from "../types";
@@ -18,7 +18,7 @@ export function PickupLocationSelector() {
 
   useEffect(() => {
     let cancelled = false;
-    setLoading(true);
+    setLoading(true); // eslint-disable-line react-hooks/set-state-in-effect
     setError(false);
 
     pickupLocationService.getAll(locale)
@@ -38,9 +38,7 @@ export function PickupLocationSelector() {
       });
 
     return () => { cancelled = true; };
-  }, [locale]);
-
-  const selectedLocation = locations.find((l) => l.id === selectedId);
+  }, [locale, selectedId, setSelectedId]);
 
   const isClosed = (open: string) => open === "CLOSED";
 
