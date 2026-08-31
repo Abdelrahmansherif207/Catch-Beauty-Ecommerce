@@ -368,6 +368,8 @@
       "detailLoadError": "فشل تحميل تفاصيل الطلب.",
       "viewDetails": "عرض التفاصيل",
       "viewInvoice": "عرض الفاتورة",
+      "invoiceNotReady": "فاتورة PDF غير متاحة بعد.",
+      "invoiceLoadError": "فشل تحميل الفاتورة.",
       "orderNumber": "طلب #{number}",
       "paymentMethod": "طريقة الدفع",
       "fulfillmentType": "طريقة الاستلام",

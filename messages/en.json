@@ -368,6 +368,8 @@
       "detailLoadError": "Failed to load order details.",
       "viewDetails": "View Details",
       "viewInvoice": "View Invoice",
+      "invoiceNotReady": "Invoice PDF is not available yet.",
+      "invoiceLoadError": "Failed to load invoice.",
       "orderNumber": "Order #{number}",
       "paymentMethod": "Payment Method",
       "fulfillmentType": "Fulfillment",

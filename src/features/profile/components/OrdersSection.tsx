@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { useTranslations } from "next-intl";
 import { orderService } from "../services/orderService";
+import { invoiceService } from "../services/invoiceService";
 import type { Order } from "../types";
 import { OrderCard } from "./OrderCard";
 import { OrderDetailModal } from "./OrderDetailModal";
@@ -23,6 +24,7 @@ export function OrdersSection() {
   const [currentPage, setCurrentPage] = useState(1);
   const [lastPage, setLastPage] = useState(1);
   const [selectedOrder, setSelectedOrder] = useState<Order | null>(null);
+  const [invoiceError, setInvoiceError] = useState<string | null>(null);
 
   const fetchOrders = useCallback(async (page: number, status: StatusFilter) => {
     setLoading(true);
@@ -43,6 +45,12 @@ export function OrdersSection() {
     fetchOrders(currentPage, activeStatus);
   }, [currentPage, activeStatus, fetchOrders]);
 
+  useEffect(() => {
+    if (!invoiceError) return;
+    const timer = setTimeout(() => setInvoiceError(null), 5000);
+    return () => clearTimeout(timer);
+  }, [invoiceError]);
+
   const handleStatusChange = useCallback((status: StatusFilter) => {
     setActiveStatus(status);
     setCurrentPage(1);
@@ -60,11 +68,19 @@ export function OrdersSection() {
     setSelectedOrder(null);
   }, []);
 
-  const handleViewInvoice = useCallback((invoiceId: string) => {
+  const handleViewInvoice = useCallback(async (invoiceId: string) => {
     setSelectedOrder(null);
-    // TODO: could open InvoiceDetailModal here in the future
-    window.open(`/api/v1/invoices/${invoiceId}/download`, "_blank");
-  }, []);
+    try {
+      const detail = await invoiceService.getByUuid(invoiceId);
+      if (detail.download_url) {
+        window.open(detail.download_url, "_blank");
+      } else {
+        setInvoiceError(t("invoiceNotReady"));
+      }
+    } catch {
+      setInvoiceError(t("invoiceLoadError"));
+    }
+  }, [t]);
 
   return (
     <div className="space-y-4">
@@ -91,6 +107,12 @@ export function OrdersSection() {
       {!loading && error && (
         <div className="rounded-xl border-2 border-red-200 bg-red-50 p-4 text-sm text-red-700">
           {error}
+        </div>
+      )}
+
+      {invoiceError && (
+        <div className="rounded-xl border-2 border-red-200 bg-red-50 p-4 text-sm text-red-700">
+          {invoiceError}
         </div>
       )}
 
