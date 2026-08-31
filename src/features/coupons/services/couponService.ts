@@ -7,9 +7,9 @@ export type RemoveCouponResult =
   | { success: false; message: string; status?: number };
 
 export const couponService = {
-  getCoupons: async (locale: string): Promise<Coupon[]> => {
+  getCoupons: async (locale: string, endpoint: string = "/general/coupons"): Promise<Coupon[]> => {
     const response = await apiFetch<ApiResponse<Coupon[]>>(
-      "/general/coupons",
+      endpoint,
       { headers: { lang: locale }, next: { revalidate: 60 } },
     );
     return response.data;
