@@ -4,6 +4,8 @@ import { cn } from "@/shared/utils/cn";
 
 type EmptyStateVariant = "cart" | "notFound" | "orders" | "serverError" | "default";
 
+export type { EmptyStateVariant };
+
 interface EmptyStateProps {
   title: string;
   description?: string;

@@ -146,7 +146,13 @@
     "freeShippingAchieved": "تم تفعيل الشحن المجاني!",
     "milestoneStart": "البداية",
     "milestoneMinimum": "الحد الأدنى",
-    "milestoneFreeShipping": "الشحن المجاني"
+    "milestoneFreeShipping": "الشحن المجاني",
+    "orderSummary": "ملخص الطلب",
+    "discount": "الخصم",
+    "inStock": "متوفر",
+    "removeItem": "إزالة العنصر",
+    "decreaseQuantity": "تقليل الكمية",
+    "increaseQuantity": "زيادة الكمية"
   },
   "wishlist": {
     "metaTitle": "قائمة الرغبات",
@@ -211,7 +217,10 @@
     "reviewUpdated": "تم تحديث تقييمك بنجاح!",
     "signInToReview": "سجل الدخول لكتابة تقييم",
     "editReview": "تعديل",
-    "cancelEdit": "إلغاء"
+    "cancelEdit": "إلغاء",
+    "increaseQuantity": "زيادة الكمية",
+    "decreaseQuantity": "تقليل الكمية",
+    "removeItem": "إزالة العنصر"
   },
   "categories": {
     "metaTitle": "التصنيفات",
@@ -471,7 +480,17 @@
     "cartExpiredDesc": "المنتجات في سلتك لم تعد متاحة. يرجى بدء طلب جديد.",
     "goToCart": "الذهاب إلى السلة",
     "errorProcessing": "حدث خطأ ما. يرجى المحاولة مرة أخرى.",
-    "fixRequiredFields": "يرجى ملء جميع الحقول المطلوبة."
+    "fixRequiredFields": "يرجى ملء جميع الحقول المطلوبة.",
+    "validation": {
+      "nameRequired": "الاسم مطلوب",
+      "phoneRequired": "رقم الهاتف مطلوب",
+      "emailRequired": "البريد الإلكتروني مطلوب",
+      "emailInvalid": "يرجى إدخال بريد إلكتروني صحيح",
+      "governorateRequired": "يرجى اختيار المحافظة",
+      "cityRequired": "المدينة مطلوبة",
+      "countryRequired": "الدولة مطلوبة",
+      "streetRequired": "عنوان الشارع مطلوب"
+    }
   },
   "siteReviews": {
     "metaTitle": "آراء العملاء",
@@ -599,7 +618,9 @@
     "cartErrorTitle": "السلة غير متاحة",
     "authErrorTitle": "خدمة المصادقة غير متاحة",
     "serverDownTitle": "تعذر الوصول إلى الخوادم",
-    "serverDownDesc": "حدث خطأ من جهة الخادم. يرجى المحاولة مرة أخرى بعد قليل."
+    "serverDownDesc": "حدث خطأ من جهة الخادم. يرجى المحاولة مرة أخرى بعد قليل.",
+    "genericErrorTitle": "حدث خطأ ما",
+    "genericErrorDesc": "تعذر تحميل هذه الصفحة. يرجى المحاولة مرة أخرى."
   },
   "emptyState": {
     "browseProducts": "تصفح جميع المنتجات",

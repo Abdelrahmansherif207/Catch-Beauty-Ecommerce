@@ -171,8 +171,10 @@ export function CartPageContent({ minimumOrderAmount }: CartPageContentProps) {
       promotion_id: item.promotion_id,
       slug: item.product.slug,
       sku: "",
+      // Server cart items are reserved, but the cart API exposes no stock
+      // count — leave stock_quantity unset rather than fabricating one.
       in_stock: true,
-      stock_quantity: 999,
+      stock_quantity: undefined,
     });
 
     const items: HydratedCartItem[] = [];
@@ -403,7 +405,7 @@ export function CartPageContent({ minimumOrderAmount }: CartPageContentProps) {
     return (
       <div className="flex flex-col items-center justify-center py-24 text-center">
         <Loader2 className="h-8 w-8 animate-spin text-primary" />
-        <p className="mt-4 text-sm font-medium text-gray-500">
+        <p className="mt-4 text-sm font-medium text-text-secondary">
           Syncing your cart…
         </p>
       </div>
@@ -414,7 +416,7 @@ export function CartPageContent({ minimumOrderAmount }: CartPageContentProps) {
     return (
       <div className="flex flex-col items-center justify-center py-24 text-center">
         <AlertTriangle className="mb-3 h-10 w-10 text-red-400" />
-        <p className="text-sm text-gray-500">{state.error}</p>
+        <p className="text-sm text-text-secondary">{state.error}</p>
         <button
           onClick={handleRetryLoad}
           className="mt-4 inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-2 text-sm font-medium text-white"

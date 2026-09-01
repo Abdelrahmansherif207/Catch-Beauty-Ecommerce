@@ -52,8 +52,8 @@ export function PickupLocationSelector() {
         <div className="space-y-3">
           {[1, 2, 3].map((i) => (
             <div key={i} className="animate-pulse rounded-xl border border-border p-4 space-y-2">
-              <div className="h-4 w-3/4 rounded bg-gray-200" />
-              <div className="h-3 w-1/2 rounded bg-gray-200" />
+              <div className="h-4 w-3/4 rounded bg-border" />
+              <div className="h-3 w-1/2 rounded bg-border" />
             </div>
           ))}
         </div>
@@ -143,7 +143,7 @@ export function PickupLocationSelector() {
             </label>
 
             {expandedId === loc.id && selectedId === loc.id && (
-              <div className="mt-2 ml-7 rounded-xl border border-border bg-gray-50 p-4 space-y-3">
+              <div className="mt-2 ml-7 rounded-xl border border-border bg-surface p-4 space-y-3">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <a
                     href={`tel:${loc.phone}`}
@@ -192,7 +192,7 @@ export function PickupLocationSelector() {
                   </table>
                 </div>
 
-                <div className="h-40 rounded-lg overflow-hidden bg-gray-200 relative">
+                <div className="h-40 rounded-lg overflow-hidden bg-border relative">
                   <iframe
                     title={loc.store_name}
                     className="w-full h-full"

@@ -63,7 +63,7 @@ export function GoogleLoginButton() {
         {pending ? t("redirecting") : t("continueWithGoogle")}
       </button>
 
-      {error ? <p className="mt-1 text-center text-xs text-red-500">{error}</p> : null}
+      {error ? <p className="mt-1 text-center text-xs text-error">{error}</p> : null}
     </>
   );
 }

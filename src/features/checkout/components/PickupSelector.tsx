@@ -54,8 +54,8 @@ export function PickupSelector({ onSelect }: PickupSelectorProps) {
         </div>
         {[1, 2].map((i) => (
           <div key={i} className="animate-pulse rounded-xl border border-border p-4 space-y-2">
-            <div className="h-4 w-3/4 rounded bg-gray-200" />
-            <div className="h-3 w-1/2 rounded bg-gray-200" />
+            <div className="h-4 w-3/4 rounded bg-border" />
+            <div className="h-3 w-1/2 rounded bg-border" />
           </div>
         ))}
       </div>
