@@ -30,7 +30,7 @@ export async function PaymentSuccessPage({
 
       <div className="mt-6 flex flex-col items-center justify-center py-16 text-center">
         <div className="rounded-full bg-green-100 p-4">
-          <CheckCircle className="size-16 text-green-600" />
+          <CheckCircle className="size-16 text-success" />
         </div>
         <h1 className="mt-6 text-2xl font-bold text-text-primary">
           {t("success.title")}

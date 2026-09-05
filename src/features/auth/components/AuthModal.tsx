@@ -129,12 +129,12 @@ function handleOverlayClick(e: React.MouseEvent<HTMLDivElement>) {
                     defaultValue={payload.email || ""}
                     className={
                       "w-full rounded-xl border bg-background ps-10 pe-4 py-3 text-sm text-text-primary outline-none transition placeholder:text-text-secondary/70 focus:border-primary focus:ring-2 focus:ring-primary/10 " +
-                      (fieldErrors.email ? "border-red-500" : "border-border")
+                      (fieldErrors.email ? "border-error" : "border-border")
                     }
                   />
                 </div>
                 {fieldErrors.email && (
-                  <p className="mt-1 text-xs text-red-500">{fieldErrors.email}</p>
+                  <p className="mt-1 text-xs text-error">{fieldErrors.email}</p>
                 )}
               </div>
             ) : (

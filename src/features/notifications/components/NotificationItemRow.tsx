@@ -74,7 +74,7 @@ export function NotificationItemRow({
           type="button"
           aria-label="Delete"
           onClick={() => onDelete(notification)}
-          className="flex h-8 w-8 items-center justify-center rounded-full text-text-secondary/70 transition-colors hover:bg-red-500/10 hover:text-red-600"
+          className="flex h-8 w-8 items-center justify-center rounded-full text-text-secondary/70 transition-colors hover:bg-error/10 hover:text-red-600"
         >
           <Trash2 className="h-4 w-4" />
         </button>

@@ -11,7 +11,7 @@ interface OrderCardProps {
 }
 
 const statusColors: Record<string, string> = {
-  completed: "bg-green-100 text-green-700",
+  completed: "bg-green-100 text-success",
   pending: "bg-amber-100 text-amber-700",
   cancelled: "bg-red-100 text-red-700",
   processing: "bg-blue-100 text-blue-700",
@@ -22,7 +22,7 @@ export function OrderCard({ order }: OrderCardProps) {
   const t = useTranslations("profile.orders");
   const [expanded, setExpanded] = useState(false);
 
-  const statusClass = statusColors[order.status] || "bg-gray-100 text-gray-700";
+  const statusClass = statusColors[order.status] || "bg-surface text-text-primary";
 
   return (
     <div className="rounded-2xl border-2 border-border bg-white overflow-hidden">
@@ -82,7 +82,7 @@ export function OrderCard({ order }: OrderCardProps) {
           {order.discount > 0 && (
             <div className="flex justify-between text-xs">
               <span className="text-text-secondary">{t("discount")}</span>
-              <span className="text-green-600">-{order.discount} K.D</span>
+              <span className="text-success">-{order.discount} K.D</span>
             </div>
           )}
         </div>

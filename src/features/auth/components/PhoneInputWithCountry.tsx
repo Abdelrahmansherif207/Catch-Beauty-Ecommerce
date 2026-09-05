@@ -61,7 +61,7 @@ export function PhoneInputWithCountry({
             onClick={() => setIsOpen(!isOpen)}
             className={
               "flex items-center gap-2 rounded-s-xl border border-e-0 bg-background px-3 py-2.5 text-sm font-semibold transition hover:bg-surface " +
-              (error ? "border-red-500" : "border-border")
+              (error ? "border-error" : "border-border")
             }
           >
             <Image
@@ -111,7 +111,7 @@ export function PhoneInputWithCountry({
             onChange={(e) => { setPhoneValue(e.target.value); onChange?.(e.target.value); }}
             className={
               "w-full rounded-e-xl border bg-background ps-10 pe-4 py-2.5 text-sm text-text-primary outline-none transition focus:border-primary " +
-              (error ? "border-red-500" : "border-border")
+              (error ? "border-error" : "border-border")
             }
           />
         </div>
@@ -119,7 +119,7 @@ export function PhoneInputWithCountry({
       {name && (
         <input type="hidden" name={name} value={`${selectedCountry.dialCode}${phoneValue}`} />
       )}
-      {error && <p className="mt-1 text-xs text-red-500">{error}</p>}
+      {error && <p className="mt-1 text-xs text-error">{error}</p>}
     </div>
   );
 }

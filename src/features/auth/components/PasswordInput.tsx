@@ -46,11 +46,11 @@ export function PasswordInput({
           onChange={onChange}
           className={
             "w-full rounded-xl border bg-background ps-4 pe-10 py-2.5 text-sm text-text-primary outline-none transition focus:border-primary " +
-            (error ? "border-red-500" : "border-border")
+            (error ? "border-error" : "border-border")
           }
         />
       </div>
-      {error && <p className="mt-1 text-xs text-red-500">{error}</p>}
+      {error && <p className="mt-1 text-xs text-error">{error}</p>}
     </div>
   );
 }
