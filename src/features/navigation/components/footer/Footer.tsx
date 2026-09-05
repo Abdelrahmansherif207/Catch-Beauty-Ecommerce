@@ -16,7 +16,7 @@ export default async function Footer({ params }: FooterProps) {
     await assembleFooterContent(locale);
 
   return (
-    <footer className="bg-black text-white mt-10">
+    <footer className="hidden bg-black text-white mt-10 lg:block">
       <div className="px-4 py-6 md:px-10">
         {/* ── Mobile Accordion ── */}
         <div className="lg:hidden">

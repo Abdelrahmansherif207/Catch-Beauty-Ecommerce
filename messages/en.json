@@ -146,7 +146,13 @@
     "freeShippingAchieved": "Free shipping unlocked!",
     "milestoneStart": "Start",
     "milestoneMinimum": "Minimum",
-    "milestoneFreeShipping": "Free Shipping"
+    "milestoneFreeShipping": "Free Shipping",
+    "orderSummary": "Order Summary",
+    "discount": "Discount",
+    "inStock": "In Stock",
+    "removeItem": "Remove item",
+    "decreaseQuantity": "Decrease quantity",
+    "increaseQuantity": "Increase quantity"
   },
   "wishlist": {
     "metaTitle": "Wishlist",
@@ -211,7 +217,10 @@
     "reviewUpdated": "Your review has been updated!",
     "signInToReview": "Sign in to write a review",
     "editReview": "Edit",
-    "cancelEdit": "Cancel"
+    "cancelEdit": "Cancel",
+    "increaseQuantity": "Increase quantity",
+    "decreaseQuantity": "Decrease quantity",
+    "removeItem": "Remove item"
   },
   "categories": {
     "metaTitle": "Categories",
@@ -525,7 +534,17 @@
     "cartExpiredDesc": "The items in your cart are no longer available. Please start a new order.",
     "goToCart": "Go to Cart",
     "errorProcessing": "Something went wrong. Please try again.",
-    "fixRequiredFields": "Please fill in all required fields."
+    "fixRequiredFields": "Please fill in all required fields.",
+    "validation": {
+      "nameRequired": "Name is required",
+      "phoneRequired": "Phone number is required",
+      "emailRequired": "Email is required",
+      "emailInvalid": "Please enter a valid email address",
+      "governorateRequired": "Please select a governorate",
+      "cityRequired": "City is required",
+      "countryRequired": "Country is required",
+      "streetRequired": "Street address is required"
+    }
   },
   "siteReviews": {
     "metaTitle": "Customer Reviews",
@@ -653,7 +672,9 @@
     "cartErrorTitle": "Cart unavailable",
     "authErrorTitle": "Authentication service unavailable",
     "serverDownTitle": "We can't reach our servers",
-    "serverDownDesc": "Please try again in a few moments."
+    "serverDownDesc": "Please try again in a few moments.",
+    "genericErrorTitle": "Something went wrong",
+    "genericErrorDesc": "This page could not be loaded. Please try again."
   },
   "emptyState": {
     "browseProducts": "Browse all products",

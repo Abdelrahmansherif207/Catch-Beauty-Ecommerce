@@ -23,7 +23,7 @@ interface LoginFormProps {
 
 function ErrorMsg({ message }: { message?: string }) {
   if (!message) return null;
-  return <p className="mt-1 text-xs text-red-500">{message}</p>;
+  return <p className="mt-1 text-xs text-error">{message}</p>;
 }
 
 export function LoginForm({
@@ -56,7 +56,7 @@ export function LoginForm({
               defaultValue={p.email || ""}
               className={
                 "w-full rounded-xl border bg-background ps-10 pe-4 py-2.5 text-sm text-text-primary outline-none transition focus:border-primary " +
-                (fieldErrors.email ? "border-red-500" : "border-border")
+                (fieldErrors.email ? "border-error" : "border-border")
               }
             />
           </div>

@@ -73,7 +73,7 @@ export default function CouponInput({ onApplied, isAuthenticated }: CouponInputP
         setErrorMsg("Network error, please try again");
       }
     }
-  }, [code, locale, isAuthenticated, openAuthModal]);
+  }, [code, locale, isAuthenticated, openAuthModal, onApplied]);
 
   const isInputDisabled = status === "loading";
 
@@ -110,7 +110,7 @@ export default function CouponInput({ onApplied, isAuthenticated }: CouponInputP
       </div>
 
       {status === "success" && (
-        <p className="flex items-center gap-1.5 text-sm text-green-600">
+        <p className="flex items-center gap-1.5 text-sm text-success">
           <CheckCircle className="h-4 w-4 shrink-0" />
           Coupon applied successfully!
         </p>
@@ -122,7 +122,7 @@ export default function CouponInput({ onApplied, isAuthenticated }: CouponInputP
         </p>
       )}
       {(status === "error" || status === "network-error") && (
-        <p className="flex items-center gap-1.5 text-sm text-red-500">
+        <p className="flex items-center gap-1.5 text-sm text-error">
           <XCircle className="h-4 w-4 shrink-0" />
           {errorMsg}
           {status === "network-error" && (

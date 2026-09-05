@@ -60,7 +60,7 @@ export default function FooterMobileContent({
 
       <FooterAccordion columns={data.columns} />
 
-      <FooterAccordionItem title={data.bottomRow.title}>
+      <FooterAccordionItem title={data.bottomRow.title} defaultOpen>
         <div>
           <FooterBottomRow data={data.bottomRow} />
         </div>

@@ -60,7 +60,7 @@ export function ProfileTabs() {
   if (error) {
     return (
       <div className="flex flex-col items-center justify-center py-16 text-center">
-        <Loader2 className="mb-3 h-8 w-8 animate-spin text-red-500" />
+        <Loader2 className="mb-3 h-8 w-8 animate-spin text-error" />
         <p className="text-sm text-red-600">{error}</p>
       </div>
     );

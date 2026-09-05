@@ -49,7 +49,7 @@ export default async function BannerSection({ endpoint, locale, title, setting }
       {title ? <SectionTitle title={title} /> : null}
       <a
         href={`/${locale}/banners/${banner.slug}`}
-        className="group relative block h-[170px] w-full overflow-hidden rounded-[20px] sm:h-[230px] lg:h-[300px]"
+        className="group relative block h-[170px] w-full overflow-hidden rounded-lg sm:h-[230px] lg:h-[300px]"
       >
         <picture className="block h-full w-full">
           <source media="(min-width: 640px)" srcSet={image.desktop} />

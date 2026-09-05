@@ -1,9 +1,11 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { useRouter } from "next/navigation";
 import { Truck, Gift, Star, ShoppingCart, Car, ShoppingBag, ChevronRight } from "lucide-react";
 import { cn } from "@/shared/utils/cn";
+import { formatMoney } from "@/shared/utils/formatMoney";
+import { Button } from "@/components/ui/Button";
 import { useAuthStore } from "@/features/auth/store/useAuthStore";
 import type { HydratedCartItem } from "../types";
 import { ProductCartItem } from "./ProductCartItem";
@@ -25,6 +27,7 @@ export function CartSection({
   minimumOrderAmount,
 }: CartSectionProps) {
   const t = useTranslations("cartPage");
+  const locale = useLocale();
   const router = useRouter();
   const isAuthenticated = useAuthStore((s) => s.isAuthenticated);
 
@@ -49,8 +52,8 @@ export function CartSection({
   const milestonePos = (minimumOrderAmount / freeShippingThreshold) * 100;
   const milestones = [
     { label: t("milestoneStart"), sub: null, pos: 0, Icon: Star },
-    { label: minimumOrderAmount + " K.D", sub: t("milestoneMinimum"), pos: milestonePos, Icon: ShoppingCart },
-    { label: freeShippingThreshold + " K.D", sub: t("milestoneFreeShipping"), pos: 100, Icon: Car },
+    { label: formatMoney(minimumOrderAmount, locale), sub: t("milestoneMinimum"), pos: milestonePos, Icon: ShoppingCart },
+    { label: formatMoney(freeShippingThreshold, locale), sub: t("milestoneFreeShipping"), pos: 100, Icon: Car },
   ];
 
   return (
@@ -136,15 +139,16 @@ export function CartSection({
         ))}
       </div>
 
-      <button
+      <Button
+        size="lg"
+        full
         disabled={!checkoutEnabled}
         onClick={() => router.push(checkoutHref)}
-        className="flex w-full items-center justify-center gap-2 rounded-xl bg-primary py-3.5 text-sm font-bold text-white transition-all hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-40"
       >
-        <ShoppingBag className="h-4 w-4" />
+        <ShoppingBag className="h-4 w-4" aria-hidden />
         {t("checkout")}
-        <ChevronRight className="h-4 w-4" />
-      </button>
+        <ChevronRight className="h-4 w-4 rtl:rotate-180" aria-hidden />
+      </Button>
 
       {!checkoutEnabled && (
         <p className="text-center text-[11px] text-text-secondary">

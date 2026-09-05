@@ -11,7 +11,7 @@ interface OrderCardProps {
 }
 
 const statusColors: Record<string, string> = {
-  completed: "bg-green-100 text-green-700",
+  completed: "bg-green-100 text-success",
   pending: "bg-amber-100 text-amber-700",
   cancelled: "bg-red-100 text-red-700",
   processing: "bg-blue-100 text-blue-700",
@@ -22,7 +22,7 @@ export function OrderCard({ order, onViewDetails }: OrderCardProps) {
   const t = useTranslations("profile.orders");
   const [expanded, setExpanded] = useState(false);
 
-  const statusClass = statusColors[order.status] || "bg-gray-100 text-gray-700";
+  const statusClass = statusColors[order.status] || "bg-surface text-text-primary";
 
   return (
     <div className="rounded-2xl border-2 border-border bg-white overflow-hidden">
@@ -63,9 +63,11 @@ export function OrderCard({ order, onViewDetails }: OrderCardProps) {
             <div key={item.id} className="flex items-center gap-3">
               <div className="h-12 w-12 rounded-lg bg-surface shrink-0 overflow-hidden">
                 {item.product.image.thumbnail && (
-                  <img
+                  <Image
                     src={item.product.image.thumbnail}
                     alt={item.product.name}
+                    width={48}
+                    height={48}
                     className="h-full w-full object-cover"
                   />
                 )}

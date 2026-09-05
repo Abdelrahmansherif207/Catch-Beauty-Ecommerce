@@ -14,7 +14,6 @@ interface TagDetailPageProps {
 }
 
 export async function TagDetailPage({ slug, locale }: TagDetailPageProps) {
-  const t = await getTranslations({ locale, namespace: "tags" });
   const te = await getTranslations({ locale, namespace: "emptyState" });
 
   let tag;
