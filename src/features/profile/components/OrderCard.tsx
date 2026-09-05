@@ -1,6 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 import { Package, ChevronDown, ChevronUp, Truck, Store, ExternalLink } from "lucide-react";
 import { useState } from "react";
 import type { Order } from "../types";
